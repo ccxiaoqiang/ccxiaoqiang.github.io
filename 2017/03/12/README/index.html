@@ -1,0 +1,627 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="安卓知识点1.ActivityActivity的生命周期，正常结束和非正常销毁的生命周期和调用函数及其使用方法；Android Training - 详解Activity生命周期(Lesson 1 - 启动与销毁Activity)Android Training - 详解Activity生命周期(Lesson 2 - 暂停与恢复activity)Android Training - 详解Activ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="陈晓强的博客">
+<meta property="og:url" content="http://yoursite.com/2017/03/12/README/index.html">
+<meta property="og:site_name" content="陈晓强的博客">
+<meta property="og:description" content="安卓知识点1.ActivityActivity的生命周期，正常结束和非正常销毁的生命周期和调用函数及其使用方法；Android Training - 详解Activity生命周期(Lesson 1 - 启动与销毁Activity)Android Training - 详解Activity生命周期(Lesson 2 - 暂停与恢复activity)Android Training - 详解Activ">
+<meta property="og:updated_time" content="2017-03-13T01:23:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="陈晓强的博客">
+<meta name="twitter:description" content="安卓知识点1.ActivityActivity的生命周期，正常结束和非正常销毁的生命周期和调用函数及其使用方法；Android Training - 详解Activity生命周期(Lesson 1 - 启动与销毁Activity)Android Training - 详解Activity生命周期(Lesson 2 - 暂停与恢复activity)Android Training - 详解Activ">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/12/README/"/>
+
+
+
+
+
+  <title>  | 陈晓强的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">陈晓强的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/12/README/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈晓强">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈晓强的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-12T21:31:13+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="安卓知识点"><a href="#安卓知识点" class="headerlink" title="安卓知识点"></a>安卓知识点</h1><p>1.Activity<br>Activity的生命周期，正常结束和非正常销毁的生命周期和调用函数及其使用方法；<br>Android<br> Training - 详解Activity生命周期(Lesson 1 - 启动与销毁Activity)<br>Android<br> Training - 详解Activity生命周期(Lesson 2 - 暂停与恢复activity)<br>Android<br> Training - 详解Activity生命周期(Lesson 3 - 停止与重启activity)<br>Android<br> Training - 详解Activity生命周期(Lesson 4 - 重新创建销毁的activity)<br>Android开发之InstanceState详解<br>Activity启动模式<br>Activity启动模式图文详解：standard,<br> singleTop, singleTask 以及 singleInstance<br>Android中Activity四种启动模式和taskAffinity属性详解<br>Activity的启动过程<br>Android应用程序启动过程源代码分析<br>Android应用程序内部启动Activity过程（startActivity）的源代码分析<br>Android应用程序在新的进程中启动新的Activity的方法和过程分析<br>Activity的回收过程及原理；<br>2.View<br>View的绘制流程；<br>Android<br> View绘制流程<br>公共技术点之<br> View 绘制流程<br>Android中measure过程、WRAP_CONTENT详解以及xml布局文件解析流程浅析(上)<br>Android中measure过程、WRAP_CONTENT详解以及xml布局文件解析流程浅析(下)<br>Android中View(视图)绘制不同状态背景图片原理深入分析以及StateListDrawable使用详解<br>Android中将布局文件/View添加至窗口过程分析<br> —- 从setContentView()谈起<br>View的事件分发原理；<br>图解<br> Android 事件分发机制<br>Android<br> 中Touch（触屏）事件传递机制<br>Android<br> 编程下 Touch 事件的分发和消费机制<br>Android-onInterceptTouchEvent()和onTouchEvent()总结<br>注：上面这篇文章没找到原创，连接是转载的，如果谁找到原创可以提供给我。<br>Android中View的量算、布局及绘图机制<br>源码解析Android中View的measure量算过程<br>源码解析Android中View的layout布局过程<br>自定义View；<br>自定义控件其实很简单(系列教程)<br>自定义ViewGroup；<br>Android<br> 手把手教您自定义ViewGroup<br>Android<br> 自定义ViewGroup 实战篇 -&gt; 实现FlowLayout<br>Android中自定义View、ViewGroup理论基础详解<br>ListView：<br>Android<br> ListView工作原理完全解析，带你从源码的角度彻底理解<br>3.Broadcast<br>广播的分类及区别,注册方法；<br>解析BroadcastReceiver之你需要了解的一些东东<br>广播实现跨进程通信的原理；<br>Android应用程序注册广播接收器（registerReceiver）的过程分析<br>Android应用程序发送广播（sendBroadcast）的过程分析<br>4.Service<br>Service的生命周期；<br>Android中bindService的使用及Service生命周期<br>绑定和非绑定Service的使用方法；<br>Android中bindService的使用及Service生命周期<br>Android通过startService实现批量下载示例<br>Service的原理；<br>Android应用程序绑定服务（bindService）的过程源代码分析<br>IntentService:<br>Android中IntentService的使用及其源码解析<br>Accessibility Services:<br>Building<br> Accessibility Services(建立可访问性服务)<br>Android<br> Accessibility(辅助功能) –实现Android应用自动安装、卸载<br>使用Android<br> Accessibility实现免Root自动批量安装功能<br>5.ContentProvider<br>ContentProvider的原理及使用方法；<br>Android<br> ContentProvider和Uri详解 (绝对全面)<br>Android应用程序组件Content<br> Provider应用实例<br>Android应用程序组件Content<br> Provider的启动过程源代码分析<br>Android应用程序组件Content<br> Provider在应用程序之间共享数据的原理分析<br>Android应用程序组件Content<br> Provider的共享数据更新通知机制分析<br>启动过程，与Applocation和Activity比较启动顺序是怎样的；<br>Contentprovider的onCreate方法在Application的onCreate方法前面，资料如下：<br>android<br> 应用的启动过程分析<br>6.Handler<br>Handle的原理及机制；<br>android的消息处理机制（图+源码分析）——Looper,Handler,Message<br>Android<br> 异步消息处理机制 让你深入理解 Looper、Handler、Message三者关系<br>深入源码解析Android中的Handler,Message,MessageQueue,Looper<br>Handler的发送处理消息的方法总会及各自的优缺点；<br>Handler的正确使用方法；<br>Handlers<br> and memory leaks in Android<br>7.Intent<br>Intent的原理及使用方法；<br>Android中Intent概述及使用<br>Android中Intent对象与Intent<br> Filter过滤匹配过程详解<br>Android中常见Intent习惯用法-上篇(附源码下载)<br>Intent属性；<br>Android权限和动作大全<br>8.网络<br>Socket的原理及使用；<br>Socket通信原理和实践<br>TCP、UDP的原理；<br>TCP、UDP、IP<br> 协议分析<br>Http通信原理；<br>Http协议<br>HTTP协议报文、工作原理及Java中的HTTP通信技术详解<br>9.Bluetooth<br>1.蓝牙2.0<br>Bluetooth介绍及原理<br>Bluetooth通信方式<br>Bluetooth使用方法<br>2.蓝牙4.0<br>BLE介绍及原理；<br>BLE通信方式；<br>BLE的使用方法；<br>10.内存优化<br>系统GC回收过程及原理；<br>Java<br> GC系列（1）：Java垃圾回收简介<br>Java<br> GC系列（2）：Java垃圾回收是如何工作的？<br>Java<br> GC系列（3）：垃圾回收器种类<br>Java<br> GC系列（4）：垃圾回收监视和分析<br>系统GC回收的触发条件；<br>Android内存管理原理<br>Android<br> 操作系统的内存回收机制<br>内存优化;<br>ANDROID内存优化(大汇总——上)<br>ANDROID内存优化(大汇总——中)<br>ANDROID内存优化(大汇总——全)<br>Android性能优化之内存篇<br>UI优化；<br>5个导致主线程卡顿较鲜为人知的元凶<br>Android抽象布局——include、merge<br> 、ViewStub<br>Performance<br> Tuning On Android<br>性能优化；<br>Android性能优化典范（一）<br>Android性能优化典范（二）<br>Android性能优化典范（三）<br>Android性能优化典范（四）<br>Android性能优化典范（五）<br>Android应用性能优化个人总结–图形优化)<br>内存泄露详解及总结；<br>Android<br> 系统稳定性 - OOM（一）<br>Android<br> 系统稳定性 - OOM（二）<br>Android<br> 系统稳定性 - ANR（一）<br>Android<br> 系统稳定性 - ANR（二）<br>Android<br> 系统稳定性 - ANR（三）<br>Android内存优化之OOM<br>Android<br> 内存泄漏总结<br>ANDROID<br> 探究oom内幕<br>内存检测工具及使用方法；<br>BlockCanary<br>BlockCanary<br> — 轻松找出Android App界面卡顿元凶<br>LeakCanary<br>LeakCanary:检测所有的内存泄漏<br>11.传感器<br>加速度<br>磁力<br>方向<br>陀螺<br>光线感应<br>压力<br>温度<br>接近<br>重力<br>线性加速度<br>旋转矢量<br>12.开发框架<br>网络框架<br>OkHttp<br>Volley<br>xUtils3<br>Retrofit<br>图片加载框架<br>Fresco<br>Fresco文档<br>Android-Universal-Image-Loader<br>Glide<br>picasso<br>Android<br> 三大图片缓存原理、特性对比<br>绘图框架<br>AChartEngine、MPAndroidChart、XCL-Charts、EazeGraph、WilliamChart、HelloCharts for Android<br>数据库框架<br>Provider，ORMLite，GreenDao<br>Provider，ORMLite，GreenDao的实现，并且简单性能对比<br>注解<br>Butter<br> Knife<br>Dragger2<br>13.网络期刊<br>codeKK<br>干货集中营<br>Android技术周报<br>开发技术前线<br>掘金<br>开发者头条<br>14.技术社区<br>IBM<br> developerWorks<br>美团点评技术团队<br>阿里技术沙龙<br>蘑菇街技术博客<br>淘宝前段团队<br>Bugly社区<br>腾讯AllyTeam<br> Blog<br>ImportNew<br>伯乐在线<br>15.资源网站<br>Android<br> Arsenal<br>IT蓝豹<br>Code4App<br>23Code<br>看源社区<br>CoolGithubProjects<br>16.博客<br>Gracker<br>专注写Android优化的博客。<br>胡凯<br>Android性能优化典范作者，高品质文章。<br>老罗的Android之旅<br>Android源码分析精品系列。<br>启舰<br>集合了动画、自定义控件以及Android各种知识的详解。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="陈晓强" />
+          <p class="site-author-name" itemprop="name">陈晓强</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安卓知识点"><span class="nav-number">1.</span> <span class="nav-text">安卓知识点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈晓强</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

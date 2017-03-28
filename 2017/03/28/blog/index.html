@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      git的使用 | 陈晓强的博客 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="陈晓强">
+    
+    
+
+    <meta name="description" content="一、实验目的1.掌握git使用2.掌握使用Github作为远程仓库二、实验任务练习本地git操作实验步骤：①    下载github客户端②    在github中新建一个text项目③    把text克隆到桌面④    修改本地text内容⑤    在github客户端中添加修改信息并提交⑥    将修改同步提交到github上
+用SSH同步本地与Github仓库实验结果：①    创建SS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git的使用 | 陈晓强的博客">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/blog/index.html">
+<meta property="og:site_name" content="陈晓强的博客">
+<meta property="og:description" content="一、实验目的1.掌握git使用2.掌握使用Github作为远程仓库二、实验任务练习本地git操作实验步骤：①    下载github客户端②    在github中新建一个text项目③    把text克隆到桌面④    修改本地text内容⑤    在github客户端中添加修改信息并提交⑥    将修改同步提交到github上
+用SSH同步本地与Github仓库实验结果：①    创建SS">
+<meta property="og:image" content="http://i1.piimg.com/567571/5dcb65d799642563.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/5d48373546de39d9.png">
+<meta property="og:updated_time" content="2017-03-28T14:46:25.079Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git的使用 | 陈晓强的博客">
+<meta name="twitter:description" content="一、实验目的1.掌握git使用2.掌握使用Github作为远程仓库二、实验任务练习本地git操作实验步骤：①    下载github客户端②    在github中新建一个text项目③    把text克隆到桌面④    修改本地text内容⑤    在github客户端中添加修改信息并提交⑥    将修改同步提交到github上
+用SSH同步本地与Github仓库实验结果：①    创建SS">
+<meta name="twitter:image" content="http://i1.piimg.com/567571/5dcb65d799642563.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">陈晓强的博客</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">git的使用</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-03-28" class="post-meta__date date">2017-03-28</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <hr>
+<h3 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><h4 id="1-掌握git使用"><a href="#1-掌握git使用" class="headerlink" title="1.掌握git使用"></a>1.掌握git使用</h4><h4 id="2-掌握使用Github作为远程仓库"><a href="#2-掌握使用Github作为远程仓库" class="headerlink" title="2.掌握使用Github作为远程仓库"></a>2.掌握使用Github作为远程仓库</h4><h3 id="二、实验任务"><a href="#二、实验任务" class="headerlink" title="二、实验任务"></a>二、实验任务</h3><h4 id="练习本地git操作"><a href="#练习本地git操作" class="headerlink" title="练习本地git操作"></a>练习本地git操作</h4><h4 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h4><p>①    下载github客户端<br>②    在github中新建一个text项目<br>③    把text克隆到桌面<br>④    修改本地text内容<br>⑤    在github客户端中添加修改信息并提交<br>⑥    将修改同步提交到github上</p>
+<h4 id="用SSH同步本地与Github仓库"><a href="#用SSH同步本地与Github仓库" class="headerlink" title="用SSH同步本地与Github仓库"></a>用SSH同步本地与Github仓库</h4><h4 id="实验结果："><a href="#实验结果：" class="headerlink" title="实验结果："></a>实验结果：</h4><p>①    创建SSH Key<br>②    登录github，打开setting——SSH and GPG keys，再将id_rsa.pub文件的内容复制粘贴到SSH Key<br>③    登录github，新建一个Repository名为git<br>④    在本地的git仓库下执行git remote add ori git@github.com:ccxiaoqiang/git.git<br>⑤    执行git push –u ori master,将本地git仓库的内容推送到github页面</p>
+<h3 id="三、实验步骤与结果"><a href="#三、实验步骤与结果" class="headerlink" title="三、实验步骤与结果"></a>三、实验步骤与结果</h3><h4 id="要求以下结果截图"><a href="#要求以下结果截图" class="headerlink" title="要求以下结果截图"></a>要求以下结果截图</h4><h4 id="1-本地操作log截图"><a href="#1-本地操作log截图" class="headerlink" title="1.本地操作log截图"></a>1.本地操作log截图</h4><p><img src="http://i1.piimg.com/567571/5dcb65d799642563.png" alt="cmd-markdown-logo"></p>
+<h4 id="2-Github上commits截图"><a href="#2-Github上commits截图" class="headerlink" title="2.Github上commits截图"></a>2.Github上commits截图</h4><p><img src="http://i1.piimg.com/567571/5d48373546de39d9.png" alt="cmd-markdown-logo"></p>
+<h3 id="四、实验小结"><a href="#四、实验小结" class="headerlink" title="四、实验小结"></a>四、实验小结</h3><p>通过本次实验，我学会了通过github客户端在本地修改文件，并将修改后的文件同步到github页面，这样不仅能看到每一次文件修改的信息，也能随时找回被误删的文件。用SSH同步本地github仓库，能够将本地git中修改的内容同步到github页面。在实验期间，我遇到了很多问题，通过查看指令执行错误以及上网搜索错误解决方法，最终都被一一克服。</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

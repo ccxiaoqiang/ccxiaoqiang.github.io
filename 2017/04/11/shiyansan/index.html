@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      使用Github管理Android项目 | 陈晓强的博客 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="陈晓强">
+    
+    
+
+    <meta name="description" content="一、实验目的1.    掌握Android Studio中Git使用2.    掌握Github管理项目
+二、实验任务1.    在Android Studio中新建项目2.    添加VCS中的Git支持3.    发布项目到Github4.    在Android Studio中进行修改代码、提交、新建分支、合并等操作5.    推送项目到Github6.    如有多人合作，处理pull r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Github管理Android项目 | 陈晓强的博客">
+<meta property="og:url" content="http://yoursite.com/2017/04/11/shiyansan/index.html">
+<meta property="og:site_name" content="陈晓强的博客">
+<meta property="og:description" content="一、实验目的1.    掌握Android Studio中Git使用2.    掌握Github管理项目
+二、实验任务1.    在Android Studio中新建项目2.    添加VCS中的Git支持3.    发布项目到Github4.    在Android Studio中进行修改代码、提交、新建分支、合并等操作5.    推送项目到Github6.    如有多人合作，处理pull r">
+<meta property="og:image" content="http://i4.buimg.com/567571/9f130bfb50926f92.png">
+<meta property="og:image" content="http://i4.buimg.com/567571/a1839c478d5f743f.png">
+<meta property="og:image" content="http://i2.muimg.com/567571/2368ecc6e5970802.png">
+<meta property="og:image" content="http://i2.muimg.com/567571/c0c6f1ebda00ce60.pngg">
+<meta property="og:image" content="http://i2.muimg.com/567571/c97a3231a586fae4.png">
+<meta property="og:image" content="http://yoursite.com/![cmd-markdown-logo](http://i1.piimg.com/567571/5dcb65d799642563.png">
+<meta property="og:updated_time" content="2017-04-11T13:13:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Github管理Android项目 | 陈晓强的博客">
+<meta name="twitter:description" content="一、实验目的1.    掌握Android Studio中Git使用2.    掌握Github管理项目
+二、实验任务1.    在Android Studio中新建项目2.    添加VCS中的Git支持3.    发布项目到Github4.    在Android Studio中进行修改代码、提交、新建分支、合并等操作5.    推送项目到Github6.    如有多人合作，处理pull r">
+<meta name="twitter:image" content="http://i4.buimg.com/567571/9f130bfb50926f92.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">陈晓强的博客</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">使用Github管理Android项目</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-04-11" class="post-meta__date date">2017-04-11</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h3 id="一、实验目的"><a href="#一、实验目的" class="headerlink" title="一、实验目的"></a>一、实验目的</h3><h4 id="1-掌握Android-Studio中Git使用"><a href="#1-掌握Android-Studio中Git使用" class="headerlink" title="1.    掌握Android Studio中Git使用"></a>1.    掌握Android Studio中Git使用</h4><h4 id="2-掌握Github管理项目"><a href="#2-掌握Github管理项目" class="headerlink" title="2.    掌握Github管理项目"></a>2.    掌握Github管理项目</h4><hr>
+<h3 id="二、实验任务"><a href="#二、实验任务" class="headerlink" title="二、实验任务"></a>二、实验任务</h3><h4 id="1-在Android-Studio中新建项目"><a href="#1-在Android-Studio中新建项目" class="headerlink" title="1.    在Android Studio中新建项目"></a>1.    在Android Studio中新建项目</h4><h4 id="2-添加VCS中的Git支持"><a href="#2-添加VCS中的Git支持" class="headerlink" title="2.    添加VCS中的Git支持"></a>2.    添加VCS中的Git支持</h4><h4 id="3-发布项目到Github"><a href="#3-发布项目到Github" class="headerlink" title="3.    发布项目到Github"></a>3.    发布项目到Github</h4><h4 id="4-在Android-Studio中进行修改代码、提交、新建分支、合并等操作"><a href="#4-在Android-Studio中进行修改代码、提交、新建分支、合并等操作" class="headerlink" title="4.    在Android Studio中进行修改代码、提交、新建分支、合并等操作"></a>4.    在Android Studio中进行修改代码、提交、新建分支、合并等操作</h4><h4 id="5-推送项目到Github"><a href="#5-推送项目到Github" class="headerlink" title="5.    推送项目到Github"></a>5.    推送项目到Github</h4><h4 id="6-如有多人合作，处理pull-request"><a href="#6-如有多人合作，处理pull-request" class="headerlink" title="6.    如有多人合作，处理pull request"></a>6.    如有多人合作，处理pull request</h4><hr>
+<h3 id="三、实验步骤与结果"><a href="#三、实验步骤与结果" class="headerlink" title="三、实验步骤与结果"></a>三、实验步骤与结果</h3><ol>
+<li>在Android Studio新建项目，取名为Gourmet。<br><img src="http://i4.buimg.com/567571/9f130bfb50926f92.png" alt="cmd-markdown-logo"></li>
+<li>在Android Studio中的VCS中打开Import into Version Control—Share Project on Github，输入自己的github的帐号密码。<br><img src="http://i4.buimg.com/567571/a1839c478d5f743f.png" alt="cmd-markdown-logo"></li>
+<li>点击share，将本地Android Studio中的工程文件发布到github上。<br><img src="http://i2.muimg.com/567571/2368ecc6e5970802.png" alt="cmd-markdown-logo"></li>
+<li>对代码进行修改，修改在string.xml中修改全局变量，修改后字体成蓝色。<br><img src="http://i2.muimg.com/567571/c0c6f1ebda00ce60.pngg" alt="cmd-markdown-logo"></li>
+<li>鼠标右击，选择Git—Commit File—commit and push。<br><img src="http://i2.muimg.com/567571/c97a3231a586fae4.png" alt="cmd-markdown-logo"><br>之后github进行同步修改，可以看到修改记录的信息和时间。<br><img src="![cmd-markdown-logo](http://i1.piimg.com/567571/5dcb65d799642563.png" alt="cmd-markdown-logo">)</li>
+</ol>
+<hr>
+<h3 id="四、实验小结"><a href="#四、实验小结" class="headerlink" title="四、实验小结"></a>四、实验小结</h3><p>通过本次实验，我学会了如何将本地的工程文件上传到github上。这给工程的修改带来了极大的方便，不再受地方的约束。只要有网络的地方就可以从github上下载代码到本地，再进行修改，修改完后再上传至github保存，还能显示每次的修改信息。</p>
+
+  </section>
+
+  
+  
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2015. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
